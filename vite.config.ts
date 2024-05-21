@@ -42,9 +42,9 @@ export default defineConfig({
       // Add your own custom pages here. Just add it to the array. Example: 'src/welcome/pages'
       routesFolder: [
         { src: 'src/pages', path: 'common/' },
-        { src: 'src/content-script/iframe/pages', path: 'iframe/' },
         { src: 'src/options/pages', path: 'options/' },
         { src: 'src/popup/pages', path: 'popup/' },
+        { src: 'src/side-panel/pages', path: 'side-panel/' },
         { src: 'src/setup/pages', path: 'setup/' },
       ],
       dts: 'src/typed-router.d.ts',
@@ -103,7 +103,6 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        iframe: 'src/content-script/iframe/index.html',
         setup: 'src/setup/index.html',
       },
     },

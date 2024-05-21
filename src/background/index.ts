@@ -1,4 +1,11 @@
 chrome.runtime.onInstalled.addListener(async (opt) => {
+
+  chrome.contextMenus.create({
+    id: 'openSidePanel',
+    title: 'Open side panel',
+    contexts: ['all']
+  });
+
   // Check if reason is install or update. Eg: opt.reason === 'install' // If extension is installed.
   // opt.reason === 'update' // If extension is updated.
   if (opt.reason === 'install') {
@@ -20,6 +27,18 @@ chrome.runtime.onInstalled.addListener(async (opt) => {
   }
 })
 
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+
+  if (!tab) {
+    throw new Error("No tabs")
+  }
+
+  if (info.menuItemId === 'openSidePanel') {
+    // This will open the panel in all the pages on the current window.
+    chrome.sidePanel.open({ windowId: tab.windowId });
+  }
+});
+
 console.log('hello world from background')
 
 self.onerror = function (message, source, lineno, colno, error) {
@@ -28,4 +47,4 @@ self.onerror = function (message, source, lineno, colno, error) {
   )
 }
 
-export {}
+export { }

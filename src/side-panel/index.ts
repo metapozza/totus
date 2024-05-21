@@ -1,6 +1,7 @@
+import '@/assets/base.scss'
+import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
-import '../../assets/base.scss'
 import App from './app.vue'
 import './index.scss'
 
@@ -9,14 +10,14 @@ const router = createRouter({
   extendRoutes: (routes) => {
     routes.push({
       path: '/',
-      redirect: '/iframe',
+      redirect: '/side-panel',
     })
 
     return routes
   },
 })
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(createPinia()).mount('#app')
 
 // console.log(router.getRoutes())
 

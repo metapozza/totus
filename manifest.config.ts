@@ -21,6 +21,9 @@ export default defineManifest(async (env) => ({
   action: {
     default_popup: 'src/popup/index.html',
   },
+  side_panel: {
+    default_path: 'src/side-panel/index.html',
+  },
   background: {
     service_worker: 'src/background/index.ts',
   },
@@ -34,6 +37,6 @@ export default defineManifest(async (env) => ({
   ],
   host_permissions: ['*://*/*'],
   options_page: 'src/options/index.html',
-  permissions: ['storage'],
+  permissions: ['storage', 'sidePanel', 'contextMenus' ],
   web_accessible_resources: [],
 }))
