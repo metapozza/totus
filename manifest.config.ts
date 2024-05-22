@@ -33,7 +33,6 @@ export default defineManifest(async (env) => ({
     },
   ],
   host_permissions: ['*://*/*'],
-  options_page: 'src/options/index.html',
   permissions: ['storage', 'sidePanel', 'contextMenus' , 'nativeMessaging'],
   web_accessible_resources: []
 }))
