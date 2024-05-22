@@ -1,4 +1,5 @@
 chrome.runtime.onInstalled.addListener(async (opt) => {
+  chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
 
   chrome.contextMenus.create({
     id: 'openSidePanel',
@@ -33,13 +34,14 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     throw new Error("No tabs")
   }
 
+  // Make sure the side panel is open.
+  chrome.sidePanel.open({ tabId: tab.id });
+
   if (info.menuItemId === 'openSidePanel') {
     // This will open the panel in all the pages on the current window.
     chrome.sidePanel.open({ windowId: tab.windowId });
   }
 });
-
-console.log('hello world from background')
 
 self.onerror = function (message, source, lineno, colno, error) {
   console.info(

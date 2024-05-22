@@ -18,9 +18,7 @@ export default defineManifest(async (env) => ({
   version_name: version,
   manifest_version: 3,
   // key: 'ekgmcbpgglflmgcfajnglpbcbdccnnje',
-  action: {
-    default_popup: 'src/popup/index.html',
-  },
+  action: {},
   side_panel: {
     default_path: 'src/side-panel/index.html',
   },
@@ -29,14 +27,13 @@ export default defineManifest(async (env) => ({
   },
   content_scripts: [
     {
-      all_frames: false,
       js: ['src/content-script/index.ts'],
-      matches: ['*://*/*'],
+      matches: ["<all_urls>"],
       run_at: 'document_end',
     },
   ],
   host_permissions: ['*://*/*'],
   options_page: 'src/options/index.html',
-  permissions: ['storage', 'sidePanel', 'contextMenus' ],
-  web_accessible_resources: [],
+  permissions: ['storage', 'sidePanel', 'contextMenus' , 'nativeMessaging'],
+  web_accessible_resources: []
 }))
