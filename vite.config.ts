@@ -42,10 +42,7 @@ export default defineConfig({
       // Add your own custom pages here. Just add it to the array. Example: 'src/welcome/pages'
       routesFolder: [
         { src: 'src/pages', path: 'common/' },
-        { src: 'src/options/pages', path: 'options/' },
-        { src: 'src/popup/pages', path: 'popup/' },
         { src: 'src/side-panel/pages', path: 'side-panel/' },
-        { src: 'src/setup/pages', path: 'setup/' },
       ],
       dts: 'src/typed-router.d.ts',
       extensions: ['.vue'],
@@ -100,13 +97,6 @@ export default defineConfig({
     }),
   ],
   define,
-  build: {
-    rollupOptions: {
-      input: {
-        setup: 'src/setup/index.html',
-      },
-    },
-  },
   server: {
     port: 8888,
     strictPort: true,

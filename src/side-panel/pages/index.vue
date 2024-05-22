@@ -49,7 +49,6 @@
     <div class="flex flex-row gap-[10px] justify-center">
       <button
         @click="search('https://solana.fm/')"
-        id="connect-phantom"
         class="btn btn-sm flex-grow"
       >
         <img
@@ -129,7 +128,7 @@ export default defineComponent({
         let address = new PublicKey(this.searchText as string)
         chrome.tabs.create({ url: domain + 'address/' + this.searchText })
       } catch (e) {}
-    },
+    }
   },
 })
 </script>

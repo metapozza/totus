@@ -16,7 +16,21 @@ window.addEventListener("message", (event) => {
         }
     }
 });
-  
+
+chrome.runtime.onMessage.addListener((message) => {
+    switch (message.type) {
+      case 'connect': {
+        console.log("c")
+        window.postMessage({context: "TOTUS", type: 'connect'}, "*")
+      }
+      case 'disconnect': {
+        console.log("d")
+        window.postMessage({context: "TOTUS", type: 'disconnect'}, "*")
+      }
+    }
+
+    return true
+  })
 
 function injectScript (src: string) {
     const s = document.createElement('script');

@@ -12,6 +12,9 @@ const [major, minor, patch, label = '0'] = version
 export default defineManifest(async (env) => ({
   name: env.mode === 'staging' ? `[INTERNAL] ${name}` : displayName || name,
   description,
+  icons: {
+    "32": "src/assets/icon32.png",
+  },
   // up to four numbers separated by dots
   version: `${major}.${minor}.${patch}.${label}`,
   // semver is OK in "version_name"
