@@ -78,13 +78,6 @@
         />
       </button>
     </div>
-
-    <RouterLink
-      class="underline"
-      to="/common/about"
-    >
-      {{ publicKey ? publicKey.toBase58() : 'ERROR' }}
-    </RouterLink>
   </div>
 </template>
 
